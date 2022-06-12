@@ -22,6 +22,7 @@ variable "rancher_address" {
 variable "letsencrypt_email_address" {
   type        = string
   description = "Email address to use for the letsencrypt certificate service"
+  default     = "user@mail.com"
 }
 
 variable "register_cluster" {

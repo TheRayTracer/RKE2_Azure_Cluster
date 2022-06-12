@@ -27,8 +27,8 @@ resource "azurerm_key_vault_access_policy" "policy" {
 
 resource "azurerm_key_vault_access_policy" "service_reader" {
   key_vault_id = azurerm_key_vault.vault.id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = var.reader_object_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
 
   key_permissions         = []
   secret_permissions      = ["Get", "Set"]

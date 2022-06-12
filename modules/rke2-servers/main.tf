@@ -9,7 +9,7 @@ resource "random_string" "uid1" {
   special = false
   lower   = true
   upper   = false
-  number  = false
+  numeric = false
 }
 
 resource "random_string" "uid2" {
@@ -17,7 +17,7 @@ resource "random_string" "uid2" {
   special = false
   lower   = true
   upper   = false
-  number  = true
+  numeric = true
 }
 
 data "azurerm_resource_group" "rg" {

@@ -46,7 +46,6 @@ resource "azurerm_lb_backend_address_pool" "bepool" {
 resource "azurerm_lb_probe" "probe" {
   name                = "${var.name}-lb-probe"
   loadbalancer_id     = azurerm_lb.lb.id
-  resource_group_name = data.azurerm_resource_group.rg.name
 
   protocol            = "Tcp"
   interval_in_seconds = 10
@@ -58,7 +57,6 @@ resource "azurerm_lb_probe" "probe" {
 resource "azurerm_lb_rule" "controlplane" {
   name                = "${var.name}-lb-rule-cp"
   loadbalancer_id     = azurerm_lb.lb.id
-  resource_group_name = data.azurerm_resource_group.rg.name
 
   protocol      = "Tcp"
   frontend_port = 6443
@@ -72,7 +70,6 @@ resource "azurerm_lb_rule" "controlplane" {
 resource "azurerm_lb_rule" "supervisor" {
   name                = "${var.name}-lb-rule-supervisor"
   loadbalancer_id     = azurerm_lb.lb.id
-  resource_group_name = data.azurerm_resource_group.rg.name
 
   protocol      = "Tcp"
   backend_port  = 9345
@@ -86,7 +83,6 @@ resource "azurerm_lb_rule" "supervisor" {
 resource "azurerm_lb_rule" "http" {
   name                = "${var.name}-lb-rule-http"
   loadbalancer_id     = azurerm_lb.lb.id
-  resource_group_name = data.azurerm_resource_group.rg.name
 
   protocol      = "Tcp"
   backend_port  = 80
@@ -100,7 +96,6 @@ resource "azurerm_lb_rule" "http" {
 resource "azurerm_lb_rule" "https" {
   name                = "${var.name}-lb-rule-https"
   loadbalancer_id     = azurerm_lb.lb.id
-  resource_group_name = data.azurerm_resource_group.rg.name
 
   protocol      = "Tcp"
   backend_port  = 443
@@ -112,9 +107,9 @@ resource "azurerm_lb_rule" "https" {
 }
 
 resource "azurerm_lb_nat_pool" "ssh" {
-  resource_group_name            = data.azurerm_resource_group.rg.name
-  loadbalancer_id                = azurerm_lb.lb.id
   name                           = "SSHNatPool"
+  loadbalancer_id                = azurerm_lb.lb.id
+  resource_group_name            = data.azurerm_resource_group.rg.name
 
   protocol                       = "Tcp"
   frontend_port_start            = 5000
