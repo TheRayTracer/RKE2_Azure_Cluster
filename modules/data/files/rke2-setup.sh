@@ -98,7 +98,7 @@ cluster_wait() {
     systemctl start rke2-server
 
     export PATH=$PATH:/var/lib/rancher/rke2/bin
-    chmod 644 /etc/rancher/rke2/rke2.yaml
+    chmod 604 /etc/rancher/rke2/rke2.yaml
     export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 
     if [ $SERVER_TYPE = "leader" ]; then

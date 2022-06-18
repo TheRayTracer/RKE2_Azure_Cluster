@@ -1,7 +1,11 @@
 # File: main.tf; Mode: Terraform; Tab-width: 2; Author: Simon Flannery;
 
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
 }
 
 provider "rancher2" {

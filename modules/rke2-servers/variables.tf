@@ -73,12 +73,6 @@ variable "instances" {
   default     = 1
 }
 
-variable "controlplane_loadbalancer_type" {
-  description = "Type of load balancer to use for the control plane"
-  type        = string
-  default     = "private"
-}
-
 variable "controlplane_loadbalancer_private_ip_address" {
   description = "IP address of the private load balancer for the control plane"
   type        = string
@@ -106,7 +100,7 @@ variable "source_image_reference" {
   default = {
     offer     = "RHEL"
     publisher = "RedHat"
-    sku       = "7-LVM"
+    sku       = "8-LVM"
     version   = "latest"
   }
 }
@@ -130,13 +124,13 @@ variable "zone_balance" {
 }
 
 variable "os_disk_storage_account_type" {
-  description = "Storage Account used for OS Disk. Possible values include Standard_LRS or Premium_LRS."
+  description = "Storage Account used for OS Disk - possible values include Standard_LRS or Premium_LRS"
   type        = string
   default     = "Standard_LRS"
 }
 
 variable "os_disk_size_gb" {
-  description = "Storage disk size for OS in GB. Defaults to 64Gb."
+  description = "Storage disk size for OS in GB - defaults to 64Gb"
   type        = number
   default     = 64
 }

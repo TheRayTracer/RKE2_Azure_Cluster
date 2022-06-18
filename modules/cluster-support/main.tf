@@ -18,7 +18,7 @@ resource "azurerm_network_security_group" "vnet_nsg" {
 
 /*
 resource "azurerm_network_security_rule" "cluster_egress_all" {
-  name                        = "cluster_egress_all"
+  name                        = "cluster-egress-all"
   priority                    = 100
   direction                   = "Outbound"
   access                      = "Allow"
@@ -33,7 +33,7 @@ resource "azurerm_network_security_rule" "cluster_egress_all" {
 */
 
 resource "azurerm_network_security_rule" "cluster_ingress_ssh" {
-  name                        = "cluster_ingress_ssh"
+  name                        = "cluster-ingress-ssh"
   priority                    = 200
   direction                   = "Inbound"
   access                      = "Allow"
@@ -47,7 +47,7 @@ resource "azurerm_network_security_rule" "cluster_ingress_ssh" {
 }
 
 resource "azurerm_network_security_rule" "cluster_ingress_http" {
-  name                        = "cluster_ingress_http"
+  name                        = "cluster-ingress-http"
   priority                    = 210
   direction                   = "Inbound"
   access                      = "Allow"
@@ -61,7 +61,7 @@ resource "azurerm_network_security_rule" "cluster_ingress_http" {
 }
 
 resource "azurerm_network_security_rule" "cluster_ingress_health_check" {
-  name                        = "cluster_ingress_health_check"
+  name                        = "cluster-ingress-health-check"
   priority                    = 220
   direction                   = "Inbound"
   access                      = "Allow"
@@ -75,7 +75,7 @@ resource "azurerm_network_security_rule" "cluster_ingress_health_check" {
 }
 
 resource "azurerm_network_security_rule" "cluster_ingress_health_check_cp_port" {
-  name                        = "cluster_ingress_health_check_cp_port"
+  name                        = "cluster-ingress-health-check-cp-port"
   priority                    = 230
   direction                   = "Inbound"
   access                      = "Allow"
@@ -89,7 +89,7 @@ resource "azurerm_network_security_rule" "cluster_ingress_health_check_cp_port" 
 }
 
 resource "azurerm_network_security_rule" "node_connection_port" {
-  name                        = "node_connection_port"
+  name                        = "node-connection-port"
   priority                    = 240
   direction                   = "Inbound"
   access                      = "Allow"
@@ -103,7 +103,7 @@ resource "azurerm_network_security_rule" "node_connection_port" {
 }
 
 resource "azurerm_network_security_rule" "cluster_ingress_https" {
-  name                        = "cluster_ingress_https"
+  name                        = "cluster-ingress-https"
   priority                    = 250
   direction                   = "Inbound"
   access                      = "Allow"
@@ -117,7 +117,7 @@ resource "azurerm_network_security_rule" "cluster_ingress_https" {
 }
 
 resource "azurerm_network_security_rule" "cluster_metrics" {
-  name                        = "cluster_metrics"
+  name                        = "cluster-metrics"
   priority                    = 260
   direction                   = "Inbound"
   access                      = "Allow"

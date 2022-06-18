@@ -17,7 +17,7 @@ variable "rke2_version" {
 
 variable "virtual_network_id" {
   type        = string
-  description = "Name of the virtual network where to deploy the agents"
+  description = "Identity of the virtual network where to deploy the agents"
 }
 
 variable "virtual_network_name" {
@@ -27,7 +27,7 @@ variable "virtual_network_name" {
 
 variable "subnet_id" {
   type        = string
-  description = "Name of the subnet where to deploy the agents"
+  description = "Identity of the subnet where to deploy the agents"
 }
 
 variable "subnet_name" {
@@ -42,7 +42,7 @@ variable "k8s_nsg_name" {
 
 variable "admin_ssh_public_key" {
   type        = string
-  description = "The SSH public key to use for SSH access to the nodes"
+  description = "The SSH public key to use for SSH access to the agents"
   default     = ""
 }
 
@@ -88,7 +88,7 @@ variable "source_image_reference" {
   default = {
     offer     = "RHEL"
     publisher = "RedHat"
-    sku       = "7-LVM"
+    sku       = "8-LVM"
     version   = "latest"
   }
 }
@@ -100,24 +100,24 @@ variable "vm_size" {
 }
 
 variable "zones" {
-  description = "List of availability zones agents should be created in."
+  description = "List of availability zones where agents should be created"
   type        = list(number)
   default     = []
 }
 
 variable "zone_balance" {
-  description = "Toggle server balance within availability zones specified."
+  description = "Toggle server balance within availability zones specified"
   default     = null
 }
 
 variable "os_disk_storage_account_type" {
-  description = "Storage Account used for OS Disk. Possible values include Standard_LRS or Premium_LRS."
+  description = "Storage Account used for OS Disk - possible values include Standard_LRS or Premium_LRS"
   type        = string
   default     = "Standard_LRS"
 }
 
 variable "os_disk_size_gb" {
-  description = "Storage disk size for OS in GB. Defaults to 64Gb"
+  description = "Storage disk size for OS in GB - defaults to 64Gb"
   type        = number
   default     = 64
 }
